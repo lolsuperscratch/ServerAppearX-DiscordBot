@@ -63,13 +63,7 @@ function richsend(channel,title,etitle,msg) {
     channel.send(embed)
 }
 function servbump(guild,channelt) {
-   let defaultChannel = "";
-     guild.channels.forEach(function(channel) {
-       if(channel.type == "text" && defaultChannel == "") {
-       if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-      defaultChannel = channel;
-     }
-  });
+  const defaultChannel = guild.channels.find(`name`,`general`);
   const invite = defaultChannel.createInvite({maxAge:0});
   sendallguilds('servers',`https://discord.gg/${invite.code}`,true,"Bumped")
   channelt.send('succesfully bumped server :ok_hand:')
