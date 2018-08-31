@@ -18,14 +18,7 @@ client.on('message', function (msg) {
 });
 
 client.on('guildCreate', function (guild) {
-     let defaultChannel = "";
-     guild.channels.forEach(function(channel) {
-       if(channel.type == "text" && defaultChannel == "") {
-       if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-      defaultChannel = channel;
-     }
-  })
-  defaultChannel.send("Hello, thanks for inviting me. if you dont have the channel **#servers** created, try creating a new one and this will help you to join other servers! :wave:");
+   
   servercount = servercount + 1;
   client.user.setActivity(`servx help|${servercount} servers invited`, { type: 'PLAYING' });
   const invite = defaultChannel.createInvite({maxAge:0});
