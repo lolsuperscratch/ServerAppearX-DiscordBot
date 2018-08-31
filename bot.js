@@ -69,7 +69,7 @@ function servbump(guild,channelt) {
        if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
       defaultChannel = channel;
      }
-  }
+  });
   const invite = defaultChannel.createInvite({maxAge:0});
   sendallguilds('servers',`https://discord.gg/${invite.code}`,true,"Bumped")
   channelt.send('succesfully bumped server :ok_hand:')
